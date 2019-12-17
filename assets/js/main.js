@@ -55,8 +55,14 @@ function toggleCommentFrame(postId) {
 }
 
 function updateLikeBtn(postId) {
+   //declare variables that we will need to change style and content
    var likeBtn = document.querySelector('.postLikeButton.post' + postId);
    var likeBtnText = document.querySelector('.postLikeButton.post' + postId + ' .likeBtnText');
+   var likeBtnBg = document.querySelector('.postNumbers.post' + postId + ' .postLikeCount');
+   var likeBtnThumbUp = document.querySelector('.postNumbers.post' + postId + ' .postLikeCount i');
+   var likeBtnNumber = document.querySelector('.postNumbers.post' + postId + ' .likeNum').textContent;
+   var likeBtnNumVisibility = document.querySelector('.postNumbers.post' + postId + ' .likeNum');
+   likeBtnNumberInt = parseInt(likeBtnNumber);
 
    $.post("includes/handlers/ajax/ajaxUpdateLikes.php", { postId: postId, userLoggedIn: userLoggedIn })
    .done(function(response) {
@@ -64,10 +70,36 @@ function updateLikeBtn(postId) {
          //user liked
          likeBtn.style.color = '#d83f87';
          likeBtnText.textContent = 'Unlike';
+         
+         //if post has 0 likes make it all visible and set num of likes to 1
+         if(likeBtnNumberInt == 0) {
+            likeBtnBg.style.visibility = 'visible';
+            likeBtnThumbUp.style.visibility = 'visible';
+            likeBtnNumVisibility.innerHTML = '1';
+            likeBtnNumVisibility.style.visibility = 'visible';
+            return;
+         }
+
+         //if post has atleast 1 like, increase num of likes by 1
+         likeBtnNumberInt = (likeBtnNumberInt + 1).toString();
+         likeBtnNumVisibility.innerHTML = likeBtnNumberInt;
          return;
       }
       //user unliked
       likeBtn.style.color = '#606770';
       likeBtnText.textContent = 'Like';
+
+      //if post has only 1 like, make it all hidden and set num of likes to 0 after you unlike it
+      if(likeBtnNumberInt == 1) {
+         likeBtnBg.style.visibility = 'hidden';
+         likeBtnThumbUp.style.visibility = 'hidden';
+         likeBtnNumVisibility.innerHTML = '0';
+         likeBtnNumVisibility.style.visibility = 'hidden';
+         return;
+      }
+
+      //if post has more than 1 like, decrease num of likes by 1
+      likeBtnNumberInt = (likeBtnNumberInt - 1).toString();
+      likeBtnNumVisibility.innerHTML = likeBtnNumberInt;
    });
 }

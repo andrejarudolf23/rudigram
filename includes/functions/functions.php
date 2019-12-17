@@ -2,7 +2,12 @@
 
 function likeCountString($input) {
    if($input == 0) {
-      $input = "<div class='likeCountContainer'></div>";
+      $input = "<div class='likeCountContainer'>
+                  <span class='postLikeCount' style='visibility: hidden'>
+                     <i class='fas fa-thumbs-up fa-xs' style='visibility: hidden;'></i> 
+                  </span>
+                  <span class='likeNum' style='visibility: hidden;'>0</span>
+               </div>";
       return $input;
    }
 
@@ -10,7 +15,7 @@ function likeCountString($input) {
                <span class='postLikeCount'>
                   <i class='fas fa-thumbs-up fa-xs'></i> 
                </span>
-               <span>$input</span>
+               <span class='likeNum'>$input</span>
             </div>";
 
    return $input;
@@ -77,7 +82,7 @@ function calculateTimeframe($postDateTime) {
          $timeMessage .= $interval->i . " minute ago";
          return $timeMessage;
       }
-      
+
       $timeMessage .= $interval->i . " minutes ago";
       return $timeMessage;
    }

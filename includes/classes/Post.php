@@ -116,7 +116,7 @@ class Post {
                            <div class='postBody'>
                               <p>$body</p>
                            </div>
-                           <div class='postNumbers'>
+                           <div class='postNumbers post$id'>
                               $likeCount
                               <div class='commentCountContainer'>
                                  <span class='postCommentCount' onclick='toggleCommentFrame($id)'>$commentCount</span>
