@@ -61,6 +61,8 @@ class Post {
             $userTo = $row['userTo'];
             $dateAdded = $row['dateAdded'];
             $likeCount = $row['likes'];
+            $likeBtnColor = "#606770";
+            $likeBtnText = "Like";
             
             $likeCount = likeCountString($likeCount);
             $commentCount = $row['commentCount'];
@@ -90,6 +92,11 @@ class Post {
             if($count++ > $limit)
                break;
 
+            if(($this->checkIfLiked($id)) == true) {
+               $likeBtnColor = "#d83f87";
+               $likeBtnText = "Unlike";
+            }
+
             // Timeframe
             $timeframe = calculateTimeframe($dateAdded);
 
@@ -112,24 +119,24 @@ class Post {
                            <div class='postNumbers'>
                               $likeCount
                               <div class='commentCountContainer'>
-                                 <span class='postCommentCount' onclick='showCommentFrame($id)'>$commentCount</span>
+                                 <span class='postCommentCount' onclick='toggleCommentFrame($id)'>$commentCount</span>
                               </div>
                            </div>
                            <div class='postButtons'>
-                              <div class='postLikeButton'>
+                              <div class='postLikeButton post$id' style='color: $likeBtnColor;' onclick='updateLikeBtn($id)'>
                                  <span>
                                     <i class='far fa-thumbs-up'></i>
-                                    <span>Like</span>
+                                    <span class='likeBtnText'>$likeBtnText</span>
                                  </span>
                               </div>
-                              <div class='postCommentButton'>
+                              <div class='postCommentButton' onclick='toggleCommentFrame($id)'>
                                  <span>
                                     <i class='far fa-comment'></i>
                                     <span>Comment</span>
                                  </span>
                               </div>
                            </div>
-                           <iframe class='frame' src='commentFrame.php' style='display: none;'></iframe>
+                           <iframe class='frame' id='commentFrame$id' src='commentFrame.php?postId=$id' style='display: none;'></iframe>
                         </div><hr>";
 
          }//End While Loop 
@@ -146,6 +153,16 @@ class Post {
       echo $output;
 
    }//End loadPosts Function
+
+   public function checkIfLiked($postId) {
+      //function that checks if the post has already been liked by user who is logged in
+      $query = mysqli_query($this->con, "SELECT * FROM likes WHERE username='$this->username' AND postId='$postId'");
+      $count = mysqli_num_rows($query);
+      if($count == 1)
+         return true;
+
+      return false;
+   }
 
 }
 

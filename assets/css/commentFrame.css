@@ -1,0 +1,142 @@
+* {
+   font-family: Arial, Helvetica, sans-serif;
+   box-sizing: border-box;
+}
+
+a {
+   text-decoration: none;
+}
+
+.commentSectionTop {
+   display: flex;
+   align-items: center;
+   width: 100%;
+}
+
+.commentSectionTop .userCommentLeft img {
+   width: 32px;
+   height: 32px;
+   border-radius: 50%;
+}
+
+.commentSectionTop form {
+   margin: 0;
+   display: flex;
+   align-items: center;
+   flex: 5;
+}
+
+.commentSectionTop form .commentBody {
+   padding: 8px 12px;
+   background-color: #f2f3f5;
+   border: 1px solid #ccd0d5;
+   border-radius: 16px;
+   width: 80%;
+   margin-left: 6px;
+}
+
+.commentSectionTop form .submitComment {
+   width: 18%;
+   border: none;
+   color: #fff;
+   background: #d83f87;
+   padding: 0.5rem 2rem;
+   border-radius: 10px;
+   font-size: 1rem;
+   font-weight: bold;
+   letter-spacing: 2px;
+   margin-left: 15px;
+   cursor: pointer;
+}
+
+.commentSectionTop form .commentBody:focus {
+   outline: none;
+}
+
+.commentList {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+
+.commentList .commentRow {
+   padding: 4px 12px;
+   display: flex;
+   align-items: center;
+   margin-top: 5px;
+}
+
+.commentRow .commentRowLeft {
+   display: block;
+   width: 32px;
+   height: 32px;
+   margin-right: 4px;
+   margin-bottom: 12px;
+}
+
+.commentRow .commentRowLeft img {
+   width: 32px;
+   height: 32px;
+   border-radius: 50%;
+}
+
+.commentRow .commentRowMid {
+   display: flex;
+   flex-direction: column;
+}
+
+.commentRow .commentRowMid a {
+   font-weight: bold;
+   font-size: 13px;
+   color: #385898;
+   padding: 8px 10px;
+   background-color: #f2f3f5;
+   border-radius: 18px;
+   white-space: normal;
+}
+
+.commentRow .commentRowMid .commentRowInfo {
+   display: flex;
+}
+
+.timeframe {
+   display: inline-block;
+   font-size: 12px;
+   color: #616770;
+   margin-top: 2px;
+}
+
+span.commentLike {
+   color: #385898;
+   cursor: pointer;
+   font-size: 12px;
+   letter-spacing: 0.2px;
+}
+
+span.commentLike:hover {
+   color: #d83f87;
+}
+
+.commentRow .commentInfo {
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+}
+
+.commentRow .commentText {
+   margin-left: 5px;
+   margin-bottom: 13px
+}
+
+.commentRow .commentText span {
+   font-size: 13px;
+   color: #1c1e21;   
+   white-space: normal;
+   word-break: break-word;
+}
+
+
+
+
+
+

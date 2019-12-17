@@ -43,9 +43,8 @@ function loadPosts(pageNum) {
    }
 }
 
-function showCommentFrame(postId) {
-   var iFrame = document.querySelector('.frame');
-   console.log(iFrame);
+function toggleCommentFrame(postId) {
+   var iFrame = document.querySelector('#commentFrame' + postId);
 
    if(iFrame.style.display == 'none') {
       iFrame.style.display = 'block';
@@ -53,4 +52,22 @@ function showCommentFrame(postId) {
    }
 
    iFrame.style.display = 'none';
+}
+
+function updateLikeBtn(postId) {
+   var likeBtn = document.querySelector('.postLikeButton.post' + postId);
+   var likeBtnText = document.querySelector('.postLikeButton.post' + postId + ' .likeBtnText');
+
+   $.post("includes/handlers/ajax/ajaxUpdateLikes.php", { postId: postId, userLoggedIn: userLoggedIn })
+   .done(function(response) {
+      if(response == 1) {
+         //user liked
+         likeBtn.style.color = '#d83f87';
+         likeBtnText.textContent = 'Unlike';
+         return;
+      }
+      //user unliked
+      likeBtn.style.color = '#606770';
+      likeBtnText.textContent = 'Like';
+   });
 }
