@@ -2,11 +2,11 @@
 
 function likeCountString($input) {
    if($input == 0) {
-      $input = "<div class='likeCountContainer'>
-                  <span class='postLikeCount' style='visibility: hidden'>
-                     <i class='fas fa-thumbs-up fa-xs' style='visibility: hidden;'></i> 
+      $input = "<div class='likeCountContainer' style='visibility: hidden;'>
+                  <span class='postLikeCount'>
+                     <i class='fas fa-thumbs-up fa-xs'></i> 
                   </span>
-                  <span class='likeNum' style='visibility: hidden;'>0</span>
+                  <span class='likeNum'>0</span>
                </div>";
       return $input;
    }

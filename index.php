@@ -6,11 +6,10 @@
       $post->submitPost($_POST['statusInput'], 'none');
    }
 ?>
-
-<?php include 'includes/userDetailsContainer.php'; ?>
-
-<?php include 'includes/newsfeedContainer.php'; ?>
-
-<?php include 'includes/footer.php'; ?> 
+<div class="container">
+   <?php include 'includes/userDetailsContainer.php'; ?>
+   <?php include 'includes/newsfeedContainer.php'; ?>
+</div>
+<?php include 'includes/footer.php'; ?>
 
    

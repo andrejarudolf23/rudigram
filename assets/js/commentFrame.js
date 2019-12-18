@@ -18,7 +18,6 @@ $(document).ready(function() {
 });
 
 function updateCommentCount(postId) {
-   //declare variables that we will need to change style and content
    var commentString = parent.document.querySelector('.postNumbers.post' + postId + ' .postCommentCount');
    var word = commentString.textContent;
 
@@ -27,7 +26,7 @@ function updateCommentCount(postId) {
       commentString.textContent = '1 Comment';
       return;
    }
-   
+
    var num = parseInt(word.replace(/ .*/,''));
    num = num + 1;
    commentString.textContent = num + " Comments";

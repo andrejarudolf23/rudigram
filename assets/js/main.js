@@ -58,11 +58,9 @@ function updateLikeBtn(postId) {
    //declare variables that we will need to change style and content
    var likeBtn = document.querySelector('.postLikeButton.post' + postId);
    var likeBtnText = document.querySelector('.postLikeButton.post' + postId + ' .likeBtnText');
-   var likeBtnBg = document.querySelector('.postNumbers.post' + postId + ' .postLikeCount');
-   var likeBtnThumbUp = document.querySelector('.postNumbers.post' + postId + ' .postLikeCount i');
-   var likeBtnNumber = document.querySelector('.postNumbers.post' + postId + ' .likeNum').textContent;
-   var likeBtnNumVisibility = document.querySelector('.postNumbers.post' + postId + ' .likeNum');
-   likeBtnNumberInt = parseInt(likeBtnNumber);
+   var likeCountContainer = document.querySelector('.postNumbers.post' + postId + ' .likeCountContainer');
+   var likeCount = document.querySelector('.postNumbers.post' + postId + ' .likeNum');
+   var likeCountInt = parseInt(likeCount.textContent);
 
    $.post("includes/handlers/ajax/ajaxUpdateLikes.php", { postId: postId, userLoggedIn: userLoggedIn })
    .done(function(response) {
@@ -72,17 +70,15 @@ function updateLikeBtn(postId) {
          likeBtnText.textContent = 'Unlike';
          
          //if post has 0 likes make it all visible and set num of likes to 1
-         if(likeBtnNumberInt == 0) {
-            likeBtnBg.style.visibility = 'visible';
-            likeBtnThumbUp.style.visibility = 'visible';
-            likeBtnNumVisibility.innerHTML = '1';
-            likeBtnNumVisibility.style.visibility = 'visible';
+         if(likeCountInt == 0) {
+            likeCountContainer.style.visibility = 'visible';
+            likeCount.innerHTML = '1';
             return;
          }
 
          //if post has atleast 1 like, increase num of likes by 1
-         likeBtnNumberInt = (likeBtnNumberInt + 1).toString();
-         likeBtnNumVisibility.innerHTML = likeBtnNumberInt;
+         likeCountInt = (likeCountInt + 1).toString();
+         likeCount.innerHTML = likeBtnNumberInt;
          return;
       }
       //user unliked
@@ -90,16 +86,14 @@ function updateLikeBtn(postId) {
       likeBtnText.textContent = 'Like';
 
       //if post has only 1 like, make it all hidden and set num of likes to 0 after you unlike it
-      if(likeBtnNumberInt == 1) {
-         likeBtnBg.style.visibility = 'hidden';
-         likeBtnThumbUp.style.visibility = 'hidden';
-         likeBtnNumVisibility.innerHTML = '0';
-         likeBtnNumVisibility.style.visibility = 'hidden';
+      if(likeCountInt == 1) {
+         likeCountContainer.style.visibility = 'hidden';
+         likeCount.innerHTML = '0';
          return;
       }
 
       //if post has more than 1 like, decrease num of likes by 1
-      likeBtnNumberInt = (likeBtnNumberInt - 1).toString();
-      likeBtnNumVisibility.innerHTML = likeBtnNumberInt;
+      likeCountInt = (likeCountInt - 1).toString();
+      likeCount.innerHTML = likeCountInt;
    });
 }
