@@ -56,7 +56,7 @@
       </div>
       <form action="commentFrame.php?postId=<?php echo $postId; ?>" method="POST">
          <input type="text" name="commentBody" class="commentBody" placeholder="Write a comment..." required="" autocomplete="off">
-         <input type="submit" name="submitComment" value="Post" class="submitComment">
+         <input type="submit" name="submitComment" value="Post" class="submitComment" onclick="updateCommentCount(<?php echo $postId; ?>)">
       </form>
    </div>
 <!-- Displaying comments -->
