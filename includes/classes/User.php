@@ -28,6 +28,10 @@ class User {
       $this->userClosed = $this->userData['userClosed'];
    }
 
+   public function getFriendArray() {
+      return $this->friendArray;
+   }
+
    public function getUsername() {
       return $this->username;
    }
@@ -73,10 +77,12 @@ class User {
    public function isFriend($userWith) {
       if($userWith === $this->username)
          return true;
+      $userWithObj = new User($this->con, $userWith);
       
-
+      $loggedUserWithComma = "," . $this->username . ",";
       $userWithComma = "," . $userWith . ",";
-      if(strpos($this->friendArray, $userWithComma) !== false) {
+      if(strpos($this->friendArray, $userWithComma) !== false &&
+         strpos($userWithObj->getFriendArray(), $loggedUserWithComma) !== false) {
          return true;
       }
 
