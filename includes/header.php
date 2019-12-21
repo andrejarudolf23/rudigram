@@ -23,6 +23,14 @@
    <link rel="stylesheet" href="assets/css/style.css">
    <!-- FontAwesome JS CDN -->
    <script src="https://kit.fontawesome.com/6433f47107.js" crossorigin="anonymous"></script>
+   <!-- jQuery CDN -->
+   <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous">
+   </script>
+   <!-- Local JS profile.js -->
+   <script src="assets/js/profile.js"></script>
    <title>Rudigram</title>
 </head>
 <body>

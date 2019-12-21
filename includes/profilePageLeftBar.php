@@ -23,13 +23,22 @@
       </div>
       <button class="btn btnDarkPrimary">Post Something</button>
       <?php
-         if($profUsername != $userLoggedIn) {
-            if(($profUser->isFriend($userLoggedIn)) == true) {
-               echo "<button class='btn btnBlack'>Remove Friend</button>";
-               exit();
-            }
-            echo "<button class='btn btnGreen'>Add Friend</button>";
-         } 
+         if($profUsername == $userLoggedIn)
+            exit();
+         if($profUser->isFriend($userLoggedIn)) {
+            echo "<button class='btn btnBlack' id='removeFriendBtn' onclick='removeFriend(\"$profUsername\")'>Remove Friend</button>";
+            exit();
+         }
+         if($user->didSendRequestTo($profUsername)) {
+            echo "<button class='btn btnGrey'>Pending Request</button>";
+            exit();
+         }
+         if($user->didGetRequestFrom($profUsername)) {
+            echo "<button class='btn btnGrey'>Respond to Request</button>";
+            exit();
+         }
+
+         echo "<button class='btn btnGreen'>Add Friend</button>";         
       ?>
    </div>
 </div>

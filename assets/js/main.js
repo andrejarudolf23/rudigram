@@ -97,3 +97,4 @@ function updateLikeBtn(postId) {
       likeCount.innerHTML = likeCountInt;
    });
 }
+

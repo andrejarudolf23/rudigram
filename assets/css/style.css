@@ -500,3 +500,8 @@ img#loadingGif {
    color: #fff;
 }
 
+.profileLeftBar .btnGrey {
+   background: grey;
+   color: #fff;
+}
+

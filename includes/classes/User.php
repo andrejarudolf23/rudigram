@@ -77,16 +77,49 @@ class User {
    public function isFriend($userWith) {
       if($userWith === $this->username)
          return true;
+
       $userWithObj = new User($this->con, $userWith);
-      
-      $loggedUserWithComma = "," . $this->username . ",";
-      $userWithComma = "," . $userWith . ",";
+      $userWithComma = "," . $userWith . ",";      
+      $loggedUserWithComma = "," . $this->username . ",";      
+
       if(strpos($this->friendArray, $userWithComma) !== false &&
          strpos($userWithObj->getFriendArray(), $loggedUserWithComma) !== false) {
          return true;
       }
 
       return false;
+   }
+
+   public function didSendRequestTo($userTo) {
+      $query = mysqli_query($this->con, "SELECT * from friend_requests WHERE userTo='$userTo' AND userFrom='$this->username'");
+      $count = mysqli_num_rows($query);
+
+      if($count == 1) {
+         return true;
+      }
+      return false;
+   }
+
+   public function didGetRequestFrom($userFrom) {
+      $query = mysqli_query($this->con, "SELECT * from friend_requests WHERE userTo='$this->username' AND userFrom='$userFrom'");
+      $count = mysqli_num_rows($query);
+
+      if($count == 1) {
+         return true;
+      }
+      return false;
+   }
+
+   public function removeFriend($userToRemove) {
+      $userToRemoveObj = new User($this->con, $userToRemove);
+      //delete from userToRemove's friendArray
+      $array1 = str_replace($this->username . ",", "", $userToRemoveObj->getFriendArray());
+
+      //delete from userLoggedIn's friendArray
+      $array2 = str_replace($userToRemove . ",", "", $this->friendArray);
+
+      $update1 = mysqli_query($this->con, "UPDATE users SET friendArray='$array1' WHERE username='$userToRemove'");
+      $update2 = mysqli_query($this->con, "UPDATE users SET friendArray='$array2' WHERE username='$this->username'");
    }
 
 }
