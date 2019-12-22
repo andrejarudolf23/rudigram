@@ -14,6 +14,3 @@
    </div>
    <img src='assets/images/icons/loading.gif' id='loadingGif'>
 </div>
-
-<script>
-</script>
