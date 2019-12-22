@@ -130,6 +130,9 @@ class User {
       $deleteQuery = mysqli_query($this->con, "DELETE FROM friend_requests WHERE userTo='$userCancel' AND userFrom='$this->username'");
    }
 
+   public function declineRequest($userFrom) {
+      $deleteQuery = mysqli_query($this->con, "DELETE FROM friend_requests WHERE userTo='$this->username' AND userFrom='$userFrom'");
+   }
 }
 
 ?>
