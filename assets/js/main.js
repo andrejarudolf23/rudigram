@@ -10,14 +10,10 @@ $(document).ready(function() {
       let pageNumber = $('.newsfeedPostsContainer').find('.nextPage').val();
       var noMorePosts = $('.newsfeedPostsContainer').find('.noMorePosts').val();
 
-      if(($(window).scrollTop() >= $('.newsfeedPostsContainer').offset().top + $('.newsfeedPostsContainer').outerHeight() - window.innerHeight + 23) && noMorePosts == 'false') {
-      // FIX THIS FUNCTION - pageNumber parameter gets passed multiple times into loadPosts function instead of once 
-         console.log(pageNumber); //it logs 2 or 3 times instead of once
-
+      if(($(window).scrollTop() >= $('.newsfeedPostsContainer').offset().top + $('.newsfeedPostsContainer').outerHeight() - window.innerHeight + 29.32) && noMorePosts == 'false') { 
          $('#loadingGif').show();
-         loadPosts(pageNumber); //this should be called once when we reach bottom of the page, but it usually gets called 2 times or 3 times
-         
-      } //end if
+         loadPosts(pageNumber);         
+      } 
 
       return false;
    }); //End $(window).scroll

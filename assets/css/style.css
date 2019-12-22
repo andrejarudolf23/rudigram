@@ -484,6 +484,7 @@ img#loadingGif {
    color: #fff;
    border-right: 8px solid #db71af;
    margin-right: 20px;
+   float: left;
 }
 
 .profileLeftBar span.userName {   
