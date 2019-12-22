@@ -1,18 +1,24 @@
-<style>
-   .container {
-      max-width: 100%;
-      margin: 48px 0 0 0;
-      padding: 0;
-      overflow-y: hidden;
-   }   
-</style>
 <?php
-   if(isset($_GET['profile_username'])) {
-      $profUsername = $_GET['profile_username'];
-      $profUser = new User($con, $profUsername);
+   function checkFriendship($profUsername, $userLoggedIn, $profUser, $user) {
+      if($profUsername == $userLoggedIn)
+         return;
+      if($profUser->isFriend($userLoggedIn)) {
+         echo "<button class='btn btnBlack' id='removeFriendBtn' onclick='removeFriend(\"$profUsername\") '>Remove Friend</button>";
+         return;
+      }
+      if($user->didSendRequestTo($profUsername)) {
+         echo "<button class='btn btnGrey' onclick='cancelFriendRequest(\"$profUsername\")'>Pending Request</button>";
+         return;
+      }
+      if($user->didGetRequestFrom($profUsername)) {
+         echo "<button class='btn btnGrey' onclick='location.href=\"requests.php\"'>Respond to Request</button>";
+         return;
+      }
+
+      echo "<button class='btn btnGreen' onclick='addFriend(\"$profUsername\")'>Add Friend</button>";
    }
-?>
-<div class="container">
+                  
+      ?>
    <div class="profileLeftBar column">
       <span class="userName"><?php echo $profUser->getFirstAndLastName(); ?></span>
       <img src="<?php echo $profUser->getProfilePic(); ?>" alt="User profile pic">
@@ -21,24 +27,8 @@
          <span>Likes: <?php echo $profUser->getNumberOfLikes(); ?></span>
          <span>Friends: <?php echo $profUser->getNumberOfLikes(); ?></span>
       </div>
+      <?php checkFriendship($profUsername, $userLoggedIn, $profUser, $user); ?>
       <button class="btn btnDarkPrimary">Post Something</button>
-      <?php
-         if($profUsername == $userLoggedIn)
-            exit();
-         if($profUser->isFriend($userLoggedIn)) {
-            echo "<button class='btn btnBlack' id='removeFriendBtn' onclick='removeFriend(\"$profUsername\") '>Remove Friend</button>";
-            exit();
-         }
-         if($user->didSendRequestTo($profUsername)) {
-            echo "<button class='btn btnGrey' onclick='cancelFriendRequest(\"$profUsername\")'>Pending Request</button>";
-            exit();
-         }
-         if($user->didGetRequestFrom($profUsername)) {
-            echo "<button class='btn btnGrey' onclick='location.href=\"requests.php\"'>Respond to Request</button>";
-            exit();
-         }
-
-         echo "<button class='btn btnGreen' onclick='addFriend(\"$profUsername\")'>Add Friend</button>";         
-      ?>
    </div>
-</div>
+
+
