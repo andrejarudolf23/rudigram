@@ -5,3 +5,10 @@ function removeFriend(username) {
    });
 }
 
+function addFriend(username) {
+   $.post("includes/handlers/ajax/ajaxAddFriend.php", { user: userLoggedIn, userToAdd: username})
+   .done(function() {
+      location.reload();
+   });
+}
+

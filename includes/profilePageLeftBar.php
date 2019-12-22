@@ -26,7 +26,7 @@
          if($profUsername == $userLoggedIn)
             exit();
          if($profUser->isFriend($userLoggedIn)) {
-            echo "<button class='btn btnBlack' id='removeFriendBtn' onclick='removeFriend(\"$profUsername\")'>Remove Friend</button>";
+            echo "<button class='btn btnBlack' id='removeFriendBtn' onclick='removeFriend(\"$profUsername\") '>Remove Friend</button>";
             exit();
          }
          if($user->didSendRequestTo($profUsername)) {
@@ -38,7 +38,7 @@
             exit();
          }
 
-         echo "<button class='btn btnGreen'>Add Friend</button>";         
+         echo "<button class='btn btnGreen' onclick='addFriend(\"$profUsername\")'>Add Friend</button>";         
       ?>
    </div>
 </div>

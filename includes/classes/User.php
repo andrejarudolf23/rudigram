@@ -122,6 +122,10 @@ class User {
       $update2 = mysqli_query($this->con, "UPDATE users SET friendArray='$array2' WHERE username='$this->username'");
    }
 
+   public function addFriend($userToAdd) {
+      $insertQuery = mysqli_query($this->con, "INSERT INTO friend_requests VALUES('', '$userToAdd', '$this->username')");
+   }
+
 }
 
 ?>
