@@ -84,7 +84,7 @@ function updateLikeBtn(postId) {
 
          //if post has atleast 1 like, increase num of likes by 1
          likeCountInt = (likeCountInt + 1).toString();
-         likeCount.innerHTML = likeBtnNumberInt;
+         likeCount.innerHTML = likeCountInt;
          return;
       }
       //user unliked
@@ -102,5 +102,16 @@ function updateLikeBtn(postId) {
       likeCountInt = (likeCountInt - 1).toString();
       likeCount.innerHTML = likeCountInt;
    });
+}
+
+function toggleCommentFrame(postId) {
+   var iFrame = document.querySelector('#commentFrame' + postId);
+
+   if(iFrame.style.display == 'none') {
+      iFrame.style.display = 'block';
+      return;
+   }
+
+   iFrame.style.display = 'none';
 }
 

@@ -74,7 +74,7 @@ function updateLikeBtn(postId) {
 
          //if post has atleast 1 like, increase num of likes by 1
          likeCountInt = (likeCountInt + 1).toString();
-         likeCount.innerHTML = likeBtnNumberInt;
+         likeCount.innerHTML = likeCountInt;
          return;
       }
       //user unliked
