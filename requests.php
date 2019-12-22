@@ -27,7 +27,7 @@
                         </div>
                      </div>
                      <div class='userRequestBottom'>
-                        <button class='btn btnGreen'>Accept</button>
+                        <button class='btn btnGreen' onclick='acceptRequest(\"$userFrom\")'>Accept</button>
                         <button class='btn btnRed' onclick='declineRequest(\"$userFrom\")'>Decline</button>
                      </div>
                   </div><hr>";
