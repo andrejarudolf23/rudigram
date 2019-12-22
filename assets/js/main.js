@@ -17,6 +17,21 @@ $(document).ready(function() {
 
       return false;
    }); //End $(window).scroll
+
+   $('.statusBtn').attr('disabled', true);   
+   $('#statusInput').keyup(function() {            
+      if($.trim($(this).val()) == '') {
+         $('.statusBtn').attr('disabled', true);
+         return;
+      }
+      if($(this).val().length != 0) {
+         $('.statusBtn').attr('disabled', false);
+         return;
+      }
+      
+      $('.statusBtn').attr('disabled', true);      
+   })
+
 });
 
 function loadPosts(pageNum) {
