@@ -22,7 +22,7 @@ class Post {
          $dateAdded = date("Y-m-d H:i:s");
 
          //if user posts on his own profile, userTo is none
-         if($userTo = $addedBy) {
+         if($userTo == $addedBy) {
             $userTo = "none";
          }
 
@@ -74,7 +74,7 @@ class Post {
             else {
                $userToObj = new User($this->con, $userTo);
                $userToName = $userToObj->getFirstAndLastName();
-               $userTo = "to <a href='" . $userTo . ">" . $userToName . "</a>";
+               $userTo = "to <a href='$userTo'>$userToName</a>";
             }
 
             //check if the user who posted has their account closed
@@ -109,7 +109,7 @@ class Post {
                               </div>
                               <div class='postHeaderMain'>
                                  <a href='$addedBy'>$addedByFirstLastName</a>
-                                 <a href='$userTo'>$userTo</a>
+                                 $userTo
                                  <span class='timeframe'>$timeframe</span>
                               </div>
                            </div>
@@ -189,7 +189,7 @@ class Post {
             else {
                $userToObj = new User($this->con, $userTo);
                $userToName = $userToObj->getFirstAndLastName();
-               $userTo = "to <a href='" . $userTo . ">" . $userToName . "</a>";
+               $userTo = "to <a href='$userTo'>$userToName</a>";
             }
 
             //check if the user who posted has their account closed
@@ -222,7 +222,7 @@ class Post {
                               </div>
                               <div class='postHeaderMain'>
                                  <a href='$addedBy'>$addedByFirstLastName</a>
-                                 <a href='$userTo'>$userTo</a>
+                                 $userTo
                                  <span class='timeframe'>$timeframe</span>
                               </div>
                            </div>
