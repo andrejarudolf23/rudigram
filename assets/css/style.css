@@ -429,7 +429,8 @@ hr {
    cursor: pointer;
 }
 
-img#loadingGif {
+img#loadingGif,
+img#profileLoadingGif {
    display: none;
    margin: 0 auto;
 }
@@ -511,6 +512,51 @@ img#loadingGif {
    font-size: 18px;
 }
 
+.profileNewsfeedContainer {
+   float: left;
+   width: 60%;
+   min-width: 675px;
+   margin: 15px 0 0 20px;
+   min-height: 170px;
+}
+
+.profileNewsfeedContainer .statusFormHeader {
+   width: 100%;
+   background: #f5f6f7;
+   border-radius: 5px;
+}
+
+.profileNewsfeedContainer #profileStatusForm {
+   width: 100%;
+   display: flex;
+}
+
+.profileNewsfeedContainer #profileStatusForm textarea {
+   width: 80%;
+   height: 57px;
+   padding: 5px;
+   font-family: inherit;
+   outline: none;
+   border: 1px solid #D3D3D3;
+   border-radius: 5px;
+   font-size: 14px;
+}
+
+.profileNewsfeedContainer #profileStatusForm .profilePostBtn {
+   width: 18%;
+   border: none;
+   color: #fff;
+   background: #d83f87;
+   padding: 0.5rem 2rem;
+   border-radius: 10px;
+   font-size: 1rem;
+   font-weight: bold;
+   letter-spacing: 2px;
+   margin-left: 15px;
+   cursor: pointer;
+   transition: 0.2s all ease;
+}
+
 /* Requests Page */
 .requestMain {
    display: block;
@@ -555,5 +601,6 @@ img#loadingGif {
 .requestMain .userRequestBottom button {
    width: 47%;
 }
+
 
 

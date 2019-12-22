@@ -11,10 +11,12 @@
    if(isset($_GET['profile_username'])) {
       $profUsername = $_GET['profile_username'];
       $profUser = new User($con, $profUsername);
+      echo "<script>profUsername='$profUsername'</script>";
    }
 ?>
 <div class="container">
    <?php include 'includes/profilePageLeftBar.php'; ?>
+   <?php include 'includes/profileNewsfeed.php'; ?>
 
 </div>
    
