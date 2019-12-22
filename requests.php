@@ -36,5 +36,7 @@
          ?>
       </div>
    </div>
+   <!-- Local JS requests.js -->
+   <script src="assets/js/requests.js"></script>
 </body>
 </html>

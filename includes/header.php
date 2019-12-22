@@ -29,10 +29,6 @@
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous">
    </script>
-   <!-- Local JS profile.js -->
-   <script src="assets/js/profile.js"></script>
-   <!-- Local JS requests.js -->
-   <script src="assets/js/requests.js"></script>
    <title>Rudigram</title>
 </head>
 <body>

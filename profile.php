@@ -17,8 +17,12 @@
 <div class="container">
    <?php include 'includes/profilePageLeftBar.php'; ?>
    <?php include 'includes/profileNewsfeed.php'; ?>
-
 </div>
+
+<!-- Local JS profile.js -->
+<script src="assets/js/profile.js"></script>
+</body>
+</html>
    
 
 
