@@ -126,6 +126,10 @@ class User {
       $insertQuery = mysqli_query($this->con, "INSERT INTO friend_requests VALUES('', '$userToAdd', '$this->username')");
    }
 
+   public function cancelRequest($userCancel) {
+      $deleteQuery = mysqli_query($this->con, "DELETE FROM friend_requests WHERE userTo='$userCancel' AND userFrom='$this->username'");
+   }
+
 }
 
 ?>

@@ -30,11 +30,11 @@
             exit();
          }
          if($user->didSendRequestTo($profUsername)) {
-            echo "<button class='btn btnGrey'>Pending Request</button>";
+            echo "<button class='btn btnGrey' onclick='cancelFriendRequest(\"$profUsername\")'>Pending Request</button>";
             exit();
          }
          if($user->didGetRequestFrom($profUsername)) {
-            echo "<button class='btn btnGrey'>Respond to Request</button>";
+            echo "<button class='btn btnGrey' onclick='location.href=\"requests.php\"'>Respond to Request</button>";
             exit();
          }
 

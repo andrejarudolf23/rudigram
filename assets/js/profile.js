@@ -12,3 +12,10 @@ function addFriend(username) {
    });
 }
 
+function cancelFriendRequest(username) {
+   $.post("includes/handlers/ajax/ajaxCancelFriendRequest.php", { user: userLoggedIn, userCancel: username})
+   .done(function() {
+      location.reload();
+   });
+}
+
