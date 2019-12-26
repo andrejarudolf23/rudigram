@@ -146,6 +146,27 @@ class User {
 
       $deleteQuery = mysqli_query($this->con, "DELETE from friend_requests WHERE userTo='$this->username' AND userFrom='$userFrom'");
    }
+
+   public function getNumOfMutualFriends($userWith) {
+      $counter = 0;
+      $userWithObj = new User($this->con, $userWith);
+      $userWithFriendArray = explode(",", $userWithObj->getFriendArray()); 
+      $thisUserFriendArray = explode(",", $this->getFriendArray());
+
+      foreach($userWithFriendArray as $i) {
+         foreach($thisUserFriendArray as $j) {
+            if($i == $j && $i != "") 
+               $counter++; 
+         }
+      }
+
+      //if user is on his own profile, display nothing
+      if($userWith == $this->getUsername()) {
+         return "";
+      }
+      
+      return $counter == 1 ? $counter . " Mutual Friend" : $counter . " Mutual Friends";
+   }
 }
 
 ?>

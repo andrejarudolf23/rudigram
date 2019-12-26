@@ -28,7 +28,7 @@
          <span>Friends: <?php echo $profUser->getNumberOfLikes(); ?></span>
       </div>
       <?php checkFriendship($profUsername, $userLoggedIn, $profUser, $user); ?>
-      <button class="btn btnDarkPrimary">Post Something</button>
+      <span class='mutualFriends'><?php echo $user->getNumOfMutualFriends($profUsername); ?></span>
    </div>
 
 
