@@ -25,7 +25,7 @@
       <div class="userInfoNumbers">
          <span>Posts: <?php echo $profUser->getNumberOfPosts(); ?></span>
          <span>Likes: <?php echo $profUser->getNumberOfLikes(); ?></span>
-         <span>Friends: <?php echo $profUser->getNumberOfLikes(); ?></span>
+         <span>Friends: <?php echo $profUser->getNumberOfFriends(); ?></span>
       </div>
       <?php checkFriendship($profUsername, $userLoggedIn, $profUser, $user); ?>
       <span class='mutualFriends'><?php echo $user->getNumOfMutualFriends($profUsername); ?></span>
