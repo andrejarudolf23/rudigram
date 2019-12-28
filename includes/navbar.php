@@ -28,7 +28,7 @@
          <a href="#">
             <i class="far fa-bell fa-lg"></i>
          </a>
-         <a href="#">
+         <a href="settings.php">
             <i class="fas fa-cog fa-lg"></i>
          </a>
          <a href="includes/handlers/logout.php">

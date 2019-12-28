@@ -609,6 +609,48 @@ img#profileLoadingGif {
    width: 47%;
 }
 
+/* Account Settings */
+.accountSettings {
+   display: block;
+   width: 700px;
+   min-width: 500px;
+   margin: 0 auto;
+}
+
+.accountSettings h2 {
+   text-align: center;
+   color: #d83f87;
+   margin-bottom: 1rem;
+}
+
+.accountSettings .changeImgContainer {
+   display: flex;
+   margin: 5px 0;
+   align-items: center;
+}
+
+.accountSettings .changeImgContainer #smallProfPic {
+   height: 55px;
+   margin-right: 12px;
+   border-radius: 50%;
+}
+
+.accountSettings .changeImgContainer a {
+   color: #20AAE5;
+   text-decoration: none;
+}
+
+.accountSettings .changeImgContainer a:hover {
+   color: #0056b3;
+}
+
+/* Upload.php */
+.uploadMain {
+   width: 500px;
+   display: block;
+   margin: 0 auto;
+}
+
 
 
 

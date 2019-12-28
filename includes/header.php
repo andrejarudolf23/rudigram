@@ -21,6 +21,7 @@
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <!-- Local CSS -->
    <link rel="stylesheet" href="assets/css/style.css">
+   <link rel="stylesheet" href="assets/css/jquery.Jcrop.css" type="text/css" />
    <!-- FontAwesome JS CDN -->
    <script src="https://kit.fontawesome.com/6433f47107.js" crossorigin="anonymous"></script>
    <!-- jQuery CDN -->
@@ -29,6 +30,8 @@
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous">
    </script>
+   <script src="assets/js/jquery.jcrop.js"></script>
+	<script src="assets/js/jcrop_bits.js"></script>
    <title>Rudigram</title>
 </head>
 <body>
