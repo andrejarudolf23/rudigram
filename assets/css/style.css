@@ -651,6 +651,144 @@ img#profileLoadingGif {
    margin: 0 auto;
 }
 
+/* messages.php PAGE */
+#messagePageWrapper {
+   width: 100%;
+   height: calc(100% - 50px);
+   margin-top: 50px;
+   display: flex;
+   padding: 0;
+   background: #fff;
+}
+
+#messagePageWrapper .chatsBarContainer {
+   flex: 0 0 25%;
+   display: flex;
+   flex-direction: column;
+}
+
+.chatsBarContainer .chatsBarHeader {
+   display: flex;
+   padding: 10px 16px;
+   height: 60px;
+   align-items: center;
+   justify-content: space-between;
+   overflow: hidden;
+}
+
+.chatsBarContainer .chatsBarHeader .headerLeftPart {
+   display: flex;
+   align-items: center;
+}
+
+.chatsBarContainer .chatsBarHeader .userImg {
+   height: 40px;
+   width: 40px;
+   margin-right: 12px;
+}
+
+.chatsBarContainer .chatsBarHeader .userImg img {
+   height: 100%;
+   border-radius: 50%;
+}
+
+.chatsBarContainer .chatsBarHeader h1 {
+   font-size: 24px;
+   color: #000000;
+   font-weight: bold;
+}
+
+.chatsBarContainer .chatsBarHeader .headerNewMsgBtn {
+   height: 40px;
+   width: 40px;
+}
+
+.chatsBarContainer .chatsBarHeader a {
+   display: inline-block;
+   height: 35px;
+   width: 35px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.chatsBarContainer .chatsBarHeader a i {
+   font-size: 23px;
+   color: #000;
+}
+
+.chatsBarContainer .chatsBarMain {
+   height: calc(100% - 60px);
+}
+
+.chatsBarContainer .chatsBarMain .chatSearchContainer {
+   padding: 4px 16px 12px;
+   width: 100%;
+   height: 52px;
+}
+
+.chatsBarMain .chatSearchContainer label.search {
+   width: 100%;
+   border: none;
+   position: relative;
+}
+
+.chatsBarMain .chatSearchContainer label.search img {
+   background-repeat: no-repeat;
+   content: '';
+   position: absolute;
+   display: inline-block;
+   height: 17px;
+   width: 17px;
+   left: 12px;   
+   top: 1px;   
+}
+
+.chatsBarMain .chatSearchContainer label.search #chatSearch {
+   padding: 0px 16px 0px 36px;
+   background-color: rgba(0, 0, 0, .04);
+   border-radius: 50px;
+   font-size: 15px;
+   height: 36px;
+   text-align: left;
+   width: 100%;
+   border: none;
+}
+
+#chatSearch:focus {
+   outline: none;
+}
+
+.chatsBarMain .chatsContainer {
+
+}
+
+.chatsBarMain .chatsContainer .noMessagesFound {
+   color: #9197A3;
+   border-top: 1px solid rgba(0, 0, 0, .10);
+   border-bottom: 1px solid rgba(0, 0, 0, .10);
+}
+
+.chatsBarMain .chatsContainer .noMessagesFound span {
+   display: block;
+   padding: 12px;
+   text-align: center;
+   font-size: 13px;
+}
+
+
+
+
+
+#messagePageWrapper .centralPageContainer {
+   flex: 3;
+   border-left: 1px solid rgba(0, 0, 0, .10);
+}
+
+
+
+
+
 
 
 

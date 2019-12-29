@@ -142,6 +142,7 @@ class User {
       $this->friendArray .= $userFrom . ",";
 
       $updateFriendQuery1 = mysqli_query($this->con, "UPDATE users SET friendArray='$userFromFriendArray' WHERE username='$userFrom'");
+      
       $updateFriendQuery2 = mysqli_query($this->con, "UPDATE users SET friendArray='$this->friendArray' WHERE username='$this->username'");
 
       $deleteQuery = mysqli_query($this->con, "DELETE from friend_requests WHERE userTo='$this->username' AND userFrom='$userFrom'");

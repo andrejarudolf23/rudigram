@@ -2,6 +2,7 @@
    include 'includes/config.php'; 
    include 'includes/classes/User.php';
    include 'includes/classes/Post.php';
+   include 'includes/classes/Message.php';
    include 'includes/functions/functions.php';
    
    if(isset($_SESSION['userLoggedIn'])) {
