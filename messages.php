@@ -42,7 +42,7 @@ else {
                <?php
             }
             else {
-               $user->loadChats();
+               $user->loadAndDisplayChats();
             }                     
             ?>
          </div>
