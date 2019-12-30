@@ -169,9 +169,6 @@ class User {
       return $counter == 1 ? $counter . " Mutual Friend" : $counter . " Mutual Friends";
    }
 
-   public function loadAndDisplayChats() {
-
-   }
 }
 
 ?>

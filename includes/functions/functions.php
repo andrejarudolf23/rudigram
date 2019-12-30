@@ -132,5 +132,31 @@ function calculateCommentTimeframe($postDateTime) {
    return $timeMessage;
 }
 
+function formatMessageDate($msgDate) {
+   $messageDate = new DateTime($msgDate);
+   $dateTimeNow = date("Y-m-d");
+   $currentDate = new DateTime($dateTimeNow);
+
+   if($messageDate->format('Y') == $currentDate->format('Y')) {
+      $monthName = $messageDate->format('F');
+      $monthName = substr($monthName, 0, 3); 
+      $dayNum = $messageDate->format('j');
+      // if($dayNum < 10)
+
+      return $monthName . " " . $dayNum; // May 5
+   }
+
+   return $messageDate->format('d/m/Y');
+}
+
+function formatText($input, $length) {
+   if(strlen($input) < $length)
+      return $input;
+   
+   $output = substr($input, 0, $length);
+
+   $output .= "...";
+   return $output;
+}
 
 ?>

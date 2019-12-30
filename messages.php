@@ -8,6 +8,7 @@ if(isset($_GET['u'])) {
 }
 else {
    $userTo = $message->getMostRecentUser();
+   $userToObj = new User($con, $userTo);
 }
 
 ?>
@@ -33,7 +34,7 @@ else {
          </div>
          <div class="chatsContainer">
             <?php
-            //if logged in user didnt have any chat at all, display this
+            //if logged in user didnt exchange any message at all with anyone, display this
             if($userTo == 'none') {
                ?> 
                <div class='noMessagesFound'>
@@ -42,13 +43,14 @@ else {
                <?php
             }
             else {
-               $user->loadAndDisplayChats();
+               $message->loadAndDisplayChats();
             }                     
             ?>
          </div>
       </div>
    </div>
    <div class="centralPageContainer">
-
+      <?php if($userTo=='none') exit(); ?>
+      
    </div>
 </div>
