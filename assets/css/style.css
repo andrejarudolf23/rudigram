@@ -790,8 +790,11 @@ img#profileLoadingGif {
    display: flex;
    padding: 0 8px;
    border-radius: 10px;
-   background: rgba(0, 0, 0, 0.05);
    height: 100%;
+}
+
+.active {
+   background: rgba(0, 0, 0, 0.05);
 }
 
 .chatsContainer .chatRow .chatRowImg {

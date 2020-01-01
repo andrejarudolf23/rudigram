@@ -8,6 +8,9 @@ if(isset($_GET['u'])) {
 }
 else {
    $userTo = $message->getMostRecentUser();
+   if($userTo != 'none') {
+      header('Location: http://localhost/rudigram/messages.php?u=' . $userTo);
+   }
    $userToObj = new User($con, $userTo);
 }
 
@@ -85,7 +88,7 @@ if(isset($_POST['submitMessage'])) {
          </div>
          <div class="rightPageContainer">
             <img src="<?php echo $userToObj->getProfilePic(); ?>" alt="User profile pic">
-            <h2><a href="profile.php?<?php echo $userTo ?>"><?php echo $userToObj->getFirstAndLastName(); ?></a></h2>
+            <h2><a href="<?php echo $userTo ?>"><?php echo $userToObj->getFirstAndLastName(); ?></a></h2>
             <span>
                <?php
                   $mutualFriends = $user->getNumOfMutualFriends($userTo);

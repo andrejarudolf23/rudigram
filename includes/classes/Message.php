@@ -39,17 +39,16 @@ class Message {
 
       $userWithProfilePic = $userWithObj->getProfilePic();
       $userWithFullName = formatText($userWithObj->getFirstAndLastName(), 23);
-
       $sentBy = ($row['userFrom'] == $userLoggedIn) ? "You: " : "";
-      $messageDate = formatMessageDate($row['date']);
-      
+      $messageDate = formatMessageDate($row['date']);      
       $length = (preg_match('/[A-Z]/', $messageDate)) ? 24 : 17;
-      $messageText = formatText($sentBy . $row['messageBody'], $length);      
+      $messageText = formatText($sentBy . $row['messageBody'], $length);
+      $color = ($_GET['u'] == $userWith) ? 'rgba(0, 0, 0, 0.05)' : 'white';      
 
       $output .= 
       "
-      <div class='chatRowContainer'>
-         <div class='chatRow'>
+      <div class='chatRowContainer $userWith' onclick='location.href=\"messages.php?u=$userWith\"'>
+         <div class='chatRow' style='background: $color;'>
             <div class='chatRowImg'>
                <img src='$userWithProfilePic' alt='User profile pic'>
             </div>
