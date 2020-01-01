@@ -44,8 +44,7 @@ class Message {
       $messageDate = formatMessageDate($row['date']);
       
       $length = (preg_match('/[A-Z]/', $messageDate)) ? 24 : 17;
-      $messageText = formatText($sentBy . $row['messageBody'], $length);
-      
+      $messageText = formatText($sentBy . $row['messageBody'], $length);      
 
       $output .= 
       "
@@ -94,7 +93,37 @@ class Message {
       foreach ($arrayOfUsers as $username) {
          echo $this->getLatestMessage($username);
       }
-      // echo $this->getLatestMessage("danilo_kasum");
+   }
+
+   public function displayMessages($userWith) {
+      $output = "";
+      $userLoggedIn = $this->username;
+
+      $updateQuery = mysqli_query($this->con, "UPDATE messages SET opened='yes' WHERE userFrom='$userWith' AND userTo='$userLoggedIn'");
+
+      $getMessagesQuery = mysqli_query($this->con, "SELECT * FROM messages WHERE (userTo='$userLoggedIn' AND userFrom='$userWith') OR (userFrom='$userLoggedIn' AND userTo='$userWith')");
+
+      while($row = mysqli_fetch_array($getMessagesQuery)) {
+         $userFrom = $row['userFrom'];
+         $userTo = $row['userTo'];
+         $messageBody = $row['messageBody'];
+
+         if($userFrom == $userLoggedIn)
+            $messageTag = "<div class='message messagePink'>";
+         else
+            $messageTag = "<div class='message messageGrey'>";
+         
+         $output .= $messageTag . "<span>$messageBody</span>" . "</div><br><br>"; 
+      }
+
+      return $output;
+   }
+
+   public function sendMessage($userTo, $messageBody) {
+      $userLoggedIn = $this->username;
+      $date = date("Y-m-d H:i:s");
+
+      $query = mysqli_query($this->con, "INSERT INTO messages VALUES('', '$userLoggedIn', '$userTo', '$messageBody', '$date', 'no', 'no', 'no')");
    }
 }
 

@@ -840,6 +840,138 @@ img#profileLoadingGif {
    border-left: 1px solid rgba(0, 0, 0, .10);
 }
 
+.centralPageContainer .pageHeading {
+   height: 60px;
+   padding: 8px 8px 8px 16px;
+   display: flex;
+   align-items: center;
+   border-bottom: none;
+   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .10);
+}
+
+.centralPageContainer .pageHeading img {
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   margin: 0 12px 0 2px;
+}
+
+.centralPageContainer .pageHeading .friendInfo {
+   display: flex;
+   flex-direction: column;
+}
+
+.centralPageContainer .pageHeading .friendInfo h2 {
+   font-size: 15px;
+}
+
+.centralPageContainer .pageHeading .friendInfo span {
+   font-size: 12px;
+   color: rgba(0, 0, 0, 0.4);
+   margin-top: 2px;
+}
+
+.centralPageContainer .messagesContainer {
+   width: 67%;
+   height: calc(100% - 60px);
+   border-right: 1px solid rgba(0, 0, 0, .10);
+   padding: 12px;
+   float: left;
+}
+
+.messagesContainer .loadedMessages {
+   height: 90%;
+   overflow-y: auto;
+   overflow-x: hidden;
+   margin-bottom: 10px;
+}
+
+.messagesContainer .loadedMessages .message {
+   padding: 6px 12px 7px;
+   margin: 1px 0px;
+   display: inline-block;
+   border-radius: 25px;
+   font-size: 15px;
+}
+
+.messageGrey {
+   background: #f1f0f0;
+   color: #000000;
+   float: left;
+}
+
+.messagePink {
+   background: #d83f87;
+   color: #fff;
+   float: right;
+}
+
+.messagesContainer .messagePost {
+   height: 10%;
+} 
+
+.messagePost form {
+   display: flex;
+}
+
+.messagePost form #messageBody {
+   width: 80%;
+   padding: 9px 12px;
+   font-size: 14px;
+   background: rgba(0, 0, 0, 0.06);
+   border: 0;
+   outline: none;
+   border-radius: 20px;
+}
+
+.messagePost form #submitMessage {
+   width: 18%;
+   border: none;
+   color: #fff;
+   background: #d83f87;
+   padding: 0.5rem 2rem;
+   border-radius: 10px;
+   font-size: 1rem;
+   font-weight: bold;
+   letter-spacing: 2px;
+   margin-left: 15px;
+   cursor: pointer;
+   transition: 0.2s all ease;
+}
+
+.rightPageContainer {
+   float: left;
+   width: 30%;
+   text-align: center;
+}
+
+.rightPageContainer a {
+   color: #000000;
+}
+
+.rightPageContainer img {
+   display: block;
+   margin: 3rem auto 6px;
+   width: 50%;
+   border-radius: 50%;
+}
+
+.rightPageContainer h2 {
+   font-size: 22px;
+   margin-bottom: 3px;
+}
+
+.rightPageContainer a:hover {
+   border-bottom: 1px solid #000000;
+}
+
+.rightPageContainer span {
+   font-size: 14px;
+   color: rgba(0, 0, 0, 0.4);
+}
+
+
+
 
 
 

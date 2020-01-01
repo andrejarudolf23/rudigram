@@ -141,12 +141,11 @@ function formatMessageDate($msgDate) {
       $monthName = $messageDate->format('F');
       $monthName = substr($monthName, 0, 3); 
       $dayNum = $messageDate->format('j');
-      // if($dayNum < 10)
 
       return $monthName . " " . $dayNum; // May 5
    }
 
-   return $messageDate->format('d/m/Y');
+   return $messageDate->format('d/m/Y'); // 16/08/1996
 }
 
 function formatText($input, $length) {
